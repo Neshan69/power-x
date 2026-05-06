@@ -1,31 +1,44 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
-  const contactForm = document.getElementById("contactForm");
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const joinWaitlistBtns = document.querySelectorAll('#joinWaitlistBtn, #joinWaitlistBtn2');
+  const closeModal = document.getElementById('closeModal');
+  const formModal = document.getElementById('formModal');
 
-  menuToggle.addEventListener("click", function() {
-    navLinks.classList.toggle("active");
+  menuToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
   });
 
-  document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
-      const href = this.getAttribute("href");
-      if (href !== "#") {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== '#') {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
+          target.scrollIntoView({ behavior: 'smooth' });
         }
       }
-      navLinks.classList.remove("active");
+      navLinks.classList.remove('active');
     });
   });
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Thank you for your message! We will get back to you soon.");
-      this.reset();
+  joinWaitlistBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      formModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     });
-  }
+  });
+
+  closeModal.addEventListener('click', function() {
+    formModal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  formModal.addEventListener('click', function(e) {
+    if (e.target === formModal) {
+      formModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 });
