@@ -8,23 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+    <a href="#home" class="skip-link">Skip to content</a>
+
+    
     <header class="header">
         <nav class="navbar">
             <div class="logo">Power<span class="logo-highlight">X</span></div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <section id="home" class="hero" role="region" aria-label="Hero section">
         <div class="hero-content">
             <h1 class="hero-title">Powering the Future with Smart Wind Energy</h1>
             <p class="hero-subtitle">Sustainable and smart energy solutions for modern homes and businesses. Harness the power of wind with innovative, elegant technology.</p>
@@ -229,4 +230,6 @@
     <script src="index.js"></script>
 </body>
 </html>
+
+
 
